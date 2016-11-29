@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="onTouchCommand" format="reference" />
+
+    <!-- require ReplyCommand {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view click event. -->
+    <attr name="clickCommand" format="reference" />
+    <!-- require ReplyCommand<Boolean> {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view focus change event.
+     ReplyCommand would has params which means if view hasFocus.-->
+    <attr name="onFocusChangeCommand" format="reference" />
+
+    <declare-styleable name="View">
+        <!-- require ReplyCommand {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view click event. -->
+        <attr name="clickCommand" />
+        <!-- require ReplyCommand<Boolean> {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view focus change event.
+         ReplyCommand would has params which means if view hasFocus.-->
+        <attr name="onFocusChangeCommand" />
+        <!-- require ReplyCommand<MotionEvent> -->
+        <attr name="onTouchCommand" />
+    </declare-styleable>
+
+    <!-- require ItemView {@link me.tatarka.bindingcollectionadapter.ItemView} or ItemViewSelector {{@link me.tatarka.bindingcollectionadapter.ItemViewSelector}.} -->
+    <attr name="itemView" format="reference" />
+    <!-- require List<ViewModel> bind to ItemView to presentation.-->
+    <attr name="items" format="reference" />
+    <!-- require a adapter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
+    <attr name="adapter" format="reference" />
+    <attr name="onScrollChangeCommand" format="reference" />
+    <attr name="onScrollStateChangedCommand" format="reference" />
+
+    <declare-styleable name="AdapterView">
+        <!-- require ItemView {@link me.tatarka.bindingcollectionadapter.ItemView} or ItemViewSelector {{@link me.tatarka.bindingcollectionadapter.ItemViewSelector}.} -->
+        <attr name="itemView" />
+        <!-- require List<ViewModel> bind to ItemView to presentation.-->
+        <attr name="items" />
+        <!-- require a adapter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
+        <attr name="adapter" />
+        <attr name="dropDownItemView" format="reference" />
+        <attr name="itemIds" format="reference" />
+        <attr name="itemIsEnabled" format="reference" />
+        <!-- require ReplyCommand<Integer> -->
+        <attr name="onScrollStateChangedCommand" />
+        <!-- require ReplyCommand<ListViewScrollDataWrapper> -->
+        <attr name="onScrollChangeCommand" />
+        <!-- require ReplyCommand<Integer> count of list items-->
+        <attr name="onLoadMoreCommand" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RecyclerView" parent="AdapterView">
+
+    </declare-styleable>
+
+    <declare-styleable name="WebView">
+        <!-- require String render to html show in webview-->
+        <attr name="render" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchBarView" >
+        <attr name="auto" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BusStationsView">
+        <attr name="circle_color" format="color|reference"/>
+        <attr name="line_color" format="color|reference"/>
+        <attr name="text_color" format="color|reference"/>
+        <attr name="circle_stroke" format="dimension|reference"/>
+        <attr name="line_stroke" format="dimension|reference"/>
+        <attr name="text_textSize" format="dimension|reference"/>
+        <attr name="circle_start_marginTop" format="dimension|reference"/>
+        <attr name="circle_radius" format="dimension|reference"/>
+        <attr name="line_hor_length" format="dimension|reference"/>
+        <attr name="line_ver_length" format="dimension|reference"/>
+        <attr name="circle_select_color" format="color|reference"/>
+        <attr name="text_select_color" format="color|reference"/>
+        <attr name="datas" format="reference" />
+    </declare-styleable>
+
+
+</resources>

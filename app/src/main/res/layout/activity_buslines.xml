@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.purityboy.jnbus.viewmodel.BuslineViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar"
+            android:gravity="center"
+            android:text="查询线路"/>
+
+        <include layout="@layout/view_divider" />
+
+        <com.purityboy.jnbus.widget.SearchBarView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            bind:auto="true"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="常用线路"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    bind:itemView="@{viewModel.historyItemView}"
+                    bind:items="@{viewModel.historyItemViewModel}"
+                    bind:layoutManager="@{LayoutManagers.linear()}">
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="15dp"
+                android:visibility="@{viewModel.viewStyle.progressRefreshing?View.VISIBLE:View.GONE}" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                bind:itemView="@{viewModel.itemView}"
+                bind:items="@{viewModel.itemViewModel}"
+                bind:layoutManager="@{LayoutManagers.linear()}">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </FrameLayout>
+
+    </LinearLayout>
+</layout>
