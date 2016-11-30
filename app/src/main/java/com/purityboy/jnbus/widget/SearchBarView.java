@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.purityboy.jnbus.R;
-import com.purityboy.jnbus.utils.L;
 
 /**
  * Created by John on 2016/11/28.
@@ -34,8 +33,6 @@ public class SearchBarView extends LinearLayout {
     private boolean auto = false;
 
     public interface OnSearchBarListener {
-        //清除
-        void clear();
         //搜索
         void search(CharSequence text);
     }
@@ -104,9 +101,8 @@ public class SearchBarView extends LinearLayout {
             }
         });
 
-        searchClear.setOnClickListener(v -> {
-            if (null != l)
-                l.clear();});
+        searchClear.setOnClickListener(v ->
+            clear());
     }
 
     private long last;

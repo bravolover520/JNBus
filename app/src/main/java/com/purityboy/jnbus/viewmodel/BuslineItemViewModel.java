@@ -6,16 +6,15 @@ import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 
 import com.purityboy.jnbus.command.ReplyCommand;
+import com.purityboy.jnbus.databinding.BaseViewModel;
 import com.purityboy.jnbus.entity.Busline;
 import com.purityboy.jnbus.ui.activity.StationsActivity;
-import com.purityboy.jnbus.utils.GsonHelper;
-import com.purityboy.jnbus.utils.L;
 
 /**
  * Created by John on 2016/11/22.
  */
 
-public class BuslineItemViewModel implements ViewModel {
+public class BuslineItemViewModel extends BaseViewModel<BuslineItemViewModel> {
 
     private Activity activity;
     //model

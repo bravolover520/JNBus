@@ -5,12 +5,7 @@ import android.os.Bundle;
 
 import com.purityboy.jnbus.R;
 import com.purityboy.jnbus.base.BaseActivity;
-import com.purityboy.jnbus.entity.Station;
 import com.purityboy.jnbus.ui.activity.BuslinesActivity;
-import com.purityboy.jnbus.ui.activity.StationsActivity;
-import com.purityboy.jnbus.widget.BusStationsView;
-
-import java.util.ArrayList;
 
 /**
  * Created by John on 2016/11/22.

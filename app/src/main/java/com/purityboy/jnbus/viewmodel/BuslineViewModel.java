@@ -8,6 +8,7 @@ import android.databinding.ObservableList;
 import com.purityboy.jnbus.BR;
 import com.purityboy.jnbus.R;
 import com.purityboy.jnbus.api.BuslineService;
+import com.purityboy.jnbus.databinding.BaseViewModel;
 import com.purityboy.jnbus.retrofit.RetrofitProvider;
 import com.trello.rxlifecycle.ActivityLifecycleProvider;
 
@@ -23,7 +24,7 @@ import rx.schedulers.Schedulers;
  * Created by John on 2016/11/24.
  */
 
-public class BuslineViewModel implements ViewModel {
+public class BuslineViewModel extends BaseViewModel<BuslineViewModel> {
 
     private Activity activity;
 

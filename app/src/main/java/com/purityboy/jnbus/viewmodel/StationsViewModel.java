@@ -5,6 +5,7 @@ import android.databinding.ObservableField;
 
 import com.purityboy.jnbus.api.BusService;
 import com.purityboy.jnbus.api.StationsService;
+import com.purityboy.jnbus.databinding.BaseViewModel;
 import com.purityboy.jnbus.entity.Bus;
 import com.purityboy.jnbus.entity.Busline;
 import com.purityboy.jnbus.entity.Station;
@@ -22,7 +23,7 @@ import rx.schedulers.Schedulers;
  * Created by John on 2016/11/24.
  */
 
-public class StationsViewModel implements ViewModel {
+public class StationsViewModel extends BaseViewModel<StationsViewModel> {
 
     private Activity activity;
 
