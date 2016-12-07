@@ -11,7 +11,7 @@ public class Bus {
     private Double lat;
     private Double velocity;
     private String isArrvLft;       //?
-    private int stationSeqNum;      //站点顺序
+    private int stationSeqNum;      //站点顺序（马上到哪一站）
     private String status;
     private String buslineId;
     private String actTime;

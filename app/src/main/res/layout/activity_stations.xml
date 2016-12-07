@@ -42,7 +42,8 @@
                 app:text_textSize="10sp"
                 app:text_color="#000000"
                 app:circle_radius="8dp"
-                bind:datas="@{viewModel.datas}"/>
+                bind:datas="@{viewModel.datas}"
+                bind:buses="@{viewModel.buses}"/>
         </ScrollView>
     </LinearLayout>
 </layout>

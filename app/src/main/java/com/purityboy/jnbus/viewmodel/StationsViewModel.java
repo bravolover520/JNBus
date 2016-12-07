@@ -13,6 +13,7 @@ import com.purityboy.jnbus.retrofit.RetrofitProvider;
 import com.trello.rxlifecycle.ActivityLifecycleProvider;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import rx.Notification;
 import rx.Observable;
@@ -21,18 +22,19 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by John on 2016/11/24.
+ * 注意：在绑定过程中注意xml中先后顺序，如果某数据先展示，必须靠前放置，例如，代码中的站点展示优先于公交数据
  */
-
 public class StationsViewModel extends BaseViewModel<StationsViewModel> {
 
     private Activity activity;
 
     private Busline data;       //线路及所有站点信息
 
-    private List<Bus> bus;      //当前运行公交信息
+    private List<Bus> buss;      //当前运行公交信息
 
     public final ObservableField<String> text = new ObservableField<>();
     public final ObservableField<List<Station>> datas = new ObservableField();
+    public final ObservableField<List<Bus>> buses = new ObservableField();
 
     public StationsViewModel(Activity activity, String line) {
         this.activity = activity;
@@ -67,8 +69,8 @@ public class StationsViewModel extends BaseViewModel<StationsViewModel> {
 
         obj.filter(Notification :: isOnNext)
                 .map(n -> n.getValue())
-                .doOnNext(m -> bus = m.getResult())
-                .subscribe(s -> {calculateLoc(); }, throwable -> {throwable.printStackTrace();});
+                .doOnNext(m -> buss = m.getResult())
+                .subscribe(s -> {calculateLoc(); interval(line);}, throwable -> {throwable.printStackTrace();});
     }
 
     //通过站点信息和当前的公交信息计算区位
@@ -77,6 +79,13 @@ public class StationsViewModel extends BaseViewModel<StationsViewModel> {
 
         //得到站点
         List<Station> stations = data.getStations();
+        //放置站点
         datas.set(stations);
+    }
+
+    //每隔多久请求一次
+    private void interval(String line) {
+        buses.set(buss);
+//        Observable.interval(15, TimeUnit.SECONDS).subscribe(aLong -> {loadBus(line);});    //延时15秒再请求
     }
 }

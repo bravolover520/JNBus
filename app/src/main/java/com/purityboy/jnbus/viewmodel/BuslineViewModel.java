@@ -56,7 +56,7 @@ public class BuslineViewModel extends BaseViewModel<BuslineViewModel> {
     public final ViewStyle viewStyle = new ViewStyle();
 
     public class ViewStyle {
-        public final ObservableBoolean progressRefreshing = new ObservableBoolean(true);
+        public final ObservableBoolean progressRefreshing = new ObservableBoolean(false);
     }
 
     public BuslineViewModel(Activity activity) {
@@ -64,6 +64,7 @@ public class BuslineViewModel extends BaseViewModel<BuslineViewModel> {
     }
 
     private void loadBusline(String line, int busline_offset) {
+        viewStyle.progressRefreshing.set(true);
         Observable<Notification<BuslineService.Data>> obj =
                 RetrofitProvider.getInstance().create(BuslineService.class)
                         .getBuslinesList(line, busline_offset)

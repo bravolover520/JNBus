@@ -73,6 +73,7 @@
         <attr name="circle_select_color" format="color|reference"/>
         <attr name="text_select_color" format="color|reference"/>
         <attr name="datas" format="reference" />
+        <attr name="buses" format="reference" />
     </declare-styleable>
 
 
